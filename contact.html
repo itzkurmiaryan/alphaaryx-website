@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Contact — AlphaAryX</title>
   <link rel="stylesheet" href="css/styles.css">
+  <!-- Font Awesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 
@@ -33,8 +34,9 @@
     <h1>Contact & Request a Quote</h1>
 
     <div class="contact-wrapper">
+
       <div class="card contact-card">
-        <!-- ✅ FIXED FORM -->
+        <!-- FormSubmit form -->
         <form action="https://formsubmit.co/aryanmuradpur2008@gmail.com" method="POST">
           <div class="form-group">
             <label for="fullname"><i class="fas fa-user"></i> Full name</label>
@@ -67,12 +69,13 @@
             <button type="reset" class="btn btn-ghost btn-block">Clear</button>
           </div>
 
-          <!-- 🔒 Hidden fields (important) -->
+          <!-- Hidden inputs for FormSubmit -->
           <input type="hidden" name="_captcha" value="false">
           <input type="hidden" name="_subject" value="New Quote Request from AlphaAryX Website!">
-          <input type="hidden" name="_template" value="box">
-          <input type="hidden" name="_next" value="https://alphaaryx.github.io/alphaaryx-website/thankyou.html">
+          <input type="hidden" name="_next" value="https://itzkurmiaryan.github.io/alphaaryx-website/thankyou.html">
         </form>
+
+        <div id="formMsg" class="muted" style="display:none;margin-top:12px"></div>
       </div>
 
       <aside class="card contact-info-card">
@@ -81,6 +84,7 @@
         <p><i class="fas fa-money-bill-wave"></i> UPI: 7524917394@postbank</p>
         <p><i class="fas fa-envelope"></i> Email: aryanmuradpur2008@gmail.com</p>
       </aside>
+
     </div>
   </main>
 
@@ -125,4 +129,5 @@
 
   <script src="js/main.js"></script>
 </body>
+
 </html>
