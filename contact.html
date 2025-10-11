@@ -36,7 +36,7 @@
     <div class="contact-wrapper">
 
       <div class="card contact-card">
-        <!-- ✅ Updated form to send directly to Gmail -->
+        <!-- FormSubmit form -->
         <form action="https://formsubmit.co/aryanmuradpur2008@gmail.com" method="POST">
           <div class="form-group">
             <label for="fullname"><i class="fas fa-user"></i> Full name</label>
@@ -69,10 +69,11 @@
             <button type="reset" class="btn btn-ghost btn-block">Clear</button>
           </div>
 
-          <!-- Hidden inputs for cleaner form submission -->
+          <!-- Hidden inputs for FormSubmit -->
           <input type="hidden" name="_captcha" value="false">
           <input type="hidden" name="_subject" value="New Quote Request from AlphaAryX Website!">
-          <input type="hidden" name="_next" value="https://yourdomain.com/thankyou.html">
+          <!-- ✅ Use relative URL to prevent 404 -->
+          <input type="hidden" name="_next" value="thankyou.html">
         </form>
 
         <div id="formMsg" class="muted" style="display:none;margin-top:12px"></div>
@@ -98,7 +99,6 @@
     </div>
 
     <div class="footer-main">
-      <!-- Left: Quick Links -->
       <div class="footer-links">
         <h3>Quick Links</h3>
         <ul>
@@ -110,7 +110,6 @@
         </ul>
       </div>
 
-      <!-- Right: Contact Info -->
       <div class="footer-contact">
         <h3>Contact Info</h3>
         <p>📞 +91 7524917394</p>
