@@ -786,3 +786,283 @@ main.container {
 
 
 
+
+
+
+/* ==== RECENT PROJECTS - GLASSMORPHIC STYLE ==== */
+.portfolio-recent {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 35px;
+  margin: 60px 0;
+  padding: 20px;
+  background: radial-gradient(circle at top left, #f7f6f6, #3e2f08);
+  border-radius: 20px;
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.05);
+}
+
+/* Each Card */
+.recent-card {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 25px rgba(0, 255, 255, 0.1);
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Hover Animation */
+.recent-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 0 25px rgba(0, 200, 255, 0.4), 0 0 40px rgba(0, 100, 255, 0.3);
+  border-color: rgba(0, 255, 255, 0.4);
+}
+
+/* Inner Content */
+.recent-content {
+  padding: 28px 20px;
+  text-align: center;
+}
+
+/* Title */
+.recent-content h4 {
+  font-size: 1.3rem;
+  color: #00d9ff;
+  margin-bottom: 12px;
+  letter-spacing: 0.5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  text-shadow: 0 0 10px rgba(0, 217, 255, 0.5);
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.recent-card:hover h4 {
+  color: #fff;
+  text-shadow: 0 0 15px rgba(0, 255, 255, 0.8);
+}
+
+/* Paragraph */
+.recent-content p {
+  color: #d0d0d0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 18px;
+}
+
+/* Button */
+.btn-view {
+  display: inline-block;
+  padding: 10px 20px;
+  color: #fff;
+  background: linear-gradient(90deg, #00bfff, #007bff);
+  border-radius: 10px;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 0 15px rgba(0, 191, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.btn-view:hover {
+  background: linear-gradient(90deg, #00ffff, #00bfff);
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.6);
+  transform: scale(1.05);
+}
+
+/* Small Decorative Line Hover Effect */
+.recent-card::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(from 90deg, rgba(0, 255, 255, 0.4), transparent 60%);
+  transform: rotate(0deg);
+  transition: all 0.5s linear;
+  z-index: 0;
+  opacity: 0;
+}
+
+.recent-card:hover::before {
+  transform: rotate(360deg);
+  opacity: 1;
+}
+
+/* Text above the rotating gradient */
+.recent-content {
+  position: relative;
+  z-index: 2;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .portfolio-recent {
+    grid-template-columns: 1fr;
+    padding: 15px;
+  }
+  .recent-content {
+    padding: 22px 16px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+/* ==== Carousel Section (Styled like Portfolio Recent) ==== */
+.carousel-section {
+  text-align: center;
+  padding: 60px 20px;
+  background: #f9fafb;
+}
+
+.carousel-section h2 {
+  font-size: 2rem;
+  color: #222;
+  margin-bottom: 40px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.carousel {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+}
+
+.slide {
+  flex: 1 1 280px;
+  max-width: 320px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.slide:hover {
+  transform: translateY(-10px);
+}
+
+.recent-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.recent-card:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.recent-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-bottom: 2px solid #00bcd4;
+}
+
+.recent-content {
+  padding: 20px;
+}
+
+.recent-content h4 {
+  font-size: 1.1rem;
+  color: #111;
+  margin-bottom: 10px;
+}
+
+.recent-content p {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+
+  
+
+   
+    .cert-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .cert-card {
+      background: #1e1e1e;
+      padding: 1rem;
+      border-radius: 12px;
+      width: 300px;
+      box-shadow: 0 0 10px rgba(0,188,212,0.3);
+      transition: transform 0.3s;
+    }
+
+    .cert-card:hover {
+      transform: scale(1.05);
+    }
+
+    .cert-card img {
+      width: 100%;
+      border-radius: 8px;
+      margin-top: 10px;
+    }
+
+    .view-cert-btn {
+      margin-top: 0.7rem;
+      background-color: #00bcd4;
+      border: none;
+      color: #121212;
+      font-weight: bold;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .view-cert-btn:hover {
+      background-color: #0097a7;
+    }
+
+   
+
+
+
+
+
+    
+    /* Lightbox styling */
+    .lightbox {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.8);
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 10px;
+    }
+
+    .lightbox:target {
+      display: flex;
+    }
+  
+
+
+
+
+

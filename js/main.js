@@ -155,3 +155,26 @@ if(canvas){
     height = canvas.height = canvas.offsetHeight;
   });
 }
+
+
+
+
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const orderData = {
+        name: form.name.value,
+        email: form.email.value,
+        service: form.service.value,
+        message: form.message.value
+    };
+
+    // Send email
+    emailjs.send('service_3eggz79', 'thank_you_template', orderData)
+      .then(() => alert("Thank you email sent!"))
+      .catch(err => alert("Email sending error: " + err));
+
+    form.reset();
+});
+
+

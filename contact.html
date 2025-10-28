@@ -31,13 +31,15 @@
   </header>
 
   <main class="container">
-    <h1>Contact & Request a Quote</h1>
+    <h1>Contact Us</h1>
 
     <div class="contact-wrapper">
 
       <div class="card contact-card">
         <!-- FormSubmit form -->
         <form action="https://formsubmit.co/aryanmuradpur2008@gmail.com" method="POST">
+          <input type="hidden" name="_next" value="https://alphaaryx.vercel.app/thankyou.html">
+
           <div class="form-group">
             <label for="fullname"><i class="fas fa-user"></i> Full name</label>
             <input id="fullname" name="Full Name" required placeholder="Your Name">
@@ -48,16 +50,7 @@
             <input id="phone" name="Phone" required placeholder="+91 7XXXXXXXXX">
           </div>
 
-          <div class="form-group">
-            <label for="serviceSelect"><i class="fas fa-clipboard-list"></i> Service</label>
-            <select id="serviceSelect" name="Service">
-              <option>Poster Design</option>
-              <option>Logo</option>
-              <option>Exam Paper</option>
-              <option>Caste Certificate</option>
-              <option>Other</option>
-            </select>
-          </div>
+          
 
           <div class="form-group">
             <label for="details"><i class="fas fa-comment-dots"></i> Details / Brief</label>
@@ -129,3 +122,11 @@
 </body>
 
 </html>
+
+
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+   (function(){
+      emailjs.init("YOURv0cKW4tBmTPXbvdBl"); // Public Key from EmailJS
+   })();
+</script>

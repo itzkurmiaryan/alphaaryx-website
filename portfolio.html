@@ -23,7 +23,7 @@
         <a href="services.html">Services</a>
         <a href="portfolio.html" class="active">Portfolio</a>
         <a href="about.html">About</a>
-        <a href="contact.html" class="btn btn-primary">Contact</a>
+        <a href="contact.html">Contact</a>
       </nav>
 
       <button class="mobile-toggle" aria-label="Menu" id="mobileToggle">☰</button>
@@ -32,51 +32,150 @@
 
   <main class="container">
     <h1>Portfolio</h1>
+
+    <!-- ==== Recent Work Samples Section ==== -->
+    <section class="carousel-section">
+      <h2>Recent Work Samples</h2>
+      <div class="carousel">
+        <div class="slide">
+          <div class="recent-card">
+            <div class="recent-content">
+              <img src="assests/poster.png" alt="Poster Sample">
+              <a href="#cert1"><button class="view-cert-btn">View </button></a>
+
+              <h4><i class="fas fa-paint-brush"></i> Poster Design</h4>
+              <p>Creative promotional poster made for client campaigns and branding.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="slide">
+          <div class="recent-card">
+            <div class="recent-content">
+              <img src="assests/l.jpg" alt="Logo Sample">
+              <a href="#cert2"><button class="view-cert-btn">View </button></a>
+
+              <h4><i class="fas fa-image"></i> Logo Design</h4>
+              <p>Professional logo sample designed for local business branding.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="slide">
+          <div class="recent-card">
+            <div class="recent-content">
+              <img src="assests/e.webp" alt="Exam Paper Sample">
+              <a href="#cert3"><button class="view-cert-btn">View </button></a>
+
+              <h4><i class="fas fa-file-alt"></i> Exam Paper Sample</h4>
+              <p>Question paper and answer key design sample for school service projects.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lightbox View for Poster -->
+      <div class="lightbox" id="cert1" onclick="location.href='portfolio.html'">
+        <img src="assests/poster.png" alt="Poster Sample">
+      </div>
+
+      <!-- Lightbox View for Logo -->
+      <div class="lightbox" id="cert2" onclick="location.href='portfolio.html'">
+        <img src="assests/l.jpg" alt="Logo Sample">
+      </div>
+
+      <!-- Lightbox View for Exam Paper -->
+      <div class="lightbox" id="cert3" onclick="location.href='portfolio.html'">
+        <img src="assests/e.webp" alt="Exam Paper Sample">
+      </div>
+
+
+    </section>
+
+
+    <!-- ==== Recent Portfolio Projects Section ==== -->
+    <div class="portfolio-recent">
+
+      <article class="recent-card">
+        <div class="recent-content">
+          <h4><i class="fas fa-file"></i> Aryan Portfolio</h4>
+          <p>A portfolio page for personal projects showcasing various works & Achievements.</p>
+          <a href="https://aryanshadow.vercel.app/" target="_blank" class="btn-view">🔗 Click Here to view it</a>
+        </div>
+      </article>
+
+      <article class="recent-card">
+        <div class="recent-content">
+          <h4><i class="fas fa-image"></i> Image Gallery</h4>
+          <p>A simple image gallery where you get Nature, Street, Night and more.</p>
+          <a href="https://image-gallery-sandy-five.vercel.app/" target="_blank" class="btn-view">🔗 Click Here to view
+            it</a>
+        </div>
+      </article>
+
+      <article class="recent-card">
+        <div class="recent-content">
+          <h4><i class="fas fa-search"></i> Civic Complaint Portal</h4>
+          <p>A platform for citizens to lodge complaints regarding civic issues.</p>
+          <a href="https://civic-henna.vercel.app/" target="_blank" class="btn-view">🔗 Click Here to view it</a>
+        </div>
+      </article>
+
+    </div>
+    <hr>
+    <hr>
+
+
+
+    </section>
     <div class="grid portfolio-grid">
 
       <article id="poster" class="card portfolio-card">
-       
+
+
         <div class="card-content">
           <h3><i class="fas fa-image"></i> Poster — Local Event</h3>
           <p>Mockup available. Size: A3, A4, social media sizes.</p>
           <p class="price">Price: ₹400</p>
-          <a href="contact.html" class="btn btn-primary btn-block">Order Now</a>
+          <a href="book.html" class="btn btn-primary btn-block">Order Now</a>
         </div>
       </article>
 
       <article id="logo" class="card portfolio-card">
-        
+
         <div class="card-content">
           <h3><i class="fas fa-pen-nib"></i> Logo — Small Business</h3>
           <p>Vector logo, multiple formats (SVG/PNG).</p>
           <p class="price">Price: ₹200</p>
-          <a href="contact.html" class="btn btn-primary btn-block">Order Now</a>
+          <a href="book.html" class="btn btn-primary btn-block">Order Now</a>
         </div>
       </article>
 
       <article id="paper" class="card portfolio-card">
-        
+
         <div class="card-content">
           <h3><i class="fas fa-file-alt"></i> Exam Paper — Class 10</h3>
           <p>CBSE-style question paper sample with marking scheme.</p>
           <p class="price">Price: ₹200</p>
-          <a href="contact.html" class="btn btn-primary btn-block">Order Now</a>
+          <a href="book.html" class="btn btn-primary btn-block">Order Now</a>
         </div>
       </article>
 
       <article id="Website Development" class="card portfolio-card">
-       
+
         <div class="card-content">
           <h3><i class="fas fa-laptop-code"></i> Website — Portfolio/Business</h3>
           <p>Responsive design with domain & hosting setup support.</p>
           <p class="price">Price: ₹3,000 – ₹30,000</p>
-          <a href="contact.html" class="btn btn-primary btn-block">Order Now</a>
+          <a href="book.html" class="btn btn-primary btn-block">Order Now</a>
         </div>
+
       </article>
 
 
     </div>
   </main>
+
 
   <footer class="footer">
     <div class="footer-top">
