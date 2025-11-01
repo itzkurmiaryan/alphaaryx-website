@@ -2,195 +2,177 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Contact — AlphaAryX</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contact — AlphaAryX</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 
 <body>
-    <header class="site-header">
-        <div class="container header-inner">
-            <a class="brand" href="index.html">
-                <img src="assests/alpha.jpg" alt="AlphaAryX" class="logo">
-                <span class="brand-text">AlphaAryX</span>
-            </a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <img src="assests/alpha.jpg" alt="AlphaAryX" class="logo">
+        <span class="brand-text">AlphaAryX</span>
+      </a>
 
-            <nav class="main-nav" id="mainNav">
-                <a href="index.html">Home</a>
-                <a href="services.html">Services</a>
-                <a href="portfolio.html">Portfolio</a>
-                <a href="about.html">About</a>
-                <a href="contact.html" class="active btn btn-primary">Contact</a>
-            </nav>
-            <button class="mobile-toggle" aria-label="Menu" id="mobileToggle">☰</button>
+      <nav class="main-nav" id="mainNav">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="about.html">About</a>
+        <a href="contact.html" class="active btn btn-primary">Contact</a>
+      </nav>
+      <button class="mobile-toggle" aria-label="Menu" id="mobileToggle">☰</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1>Book a Service</h1>
+
+    <div class="contact-wrapper">
+      <div class="card contact-card">
+
+        <!-- ✅ Single Form only -->
+        <form id="serviceForm">
+          <div class="form-group">
+            <label for="fullname"><i class="fas fa-user"></i> Full name</label>
+            <input id="fullname" name="name" required placeholder="Your Name">
+          </div>
+
+          <div class="form-group">
+            <label for="phone"><i class="fas fa-phone"></i> Phone / WhatsApp</label>
+            <input id="phone" name="phone" required placeholder="+91 7XXXXXXXXX">
+          </div>
+
+          <div class="form-group">
+            <label for="email"><i class="fas fa-envelope"></i> Email</label>
+            <input id="email" type="email" name="email" required placeholder="your@email.com">
+          </div>
+
+          <div class="form-group">
+            <label for="serviceSelect"><i class="fas fa-clipboard-list"></i> Service</label>
+            <select id="serviceSelect" name="service" required>
+              <option value="">-- Select a Service --</option>
+              <option value="Poster Design">Poster Design</option>
+              <option value="Logo">Logo</option>
+              <option value="Exam Paper">Exam Paper</option>
+              <option value="Typing">Typing</option>
+              <option value="Website Development">Website Development</option>
+              <option value="Form Online">Form Online</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+
+          <div id="otherInput" class="form-group" style="display:none;">
+            <label for="otherText"><i class="fas fa-pen"></i> Please specify:</label>
+            <input type="text" id="otherText" name="other_service" placeholder="Type here..." />
+          </div>
+
+          <div class="form-group">
+            <label for="details"><i class="fas fa-comment-dots"></i> Details / Brief</label>
+            <textarea id="details" name="details" required placeholder="Describe your requirement"></textarea>
+          </div>
+
+          <div class="form-row">
+            <button type="submit" class="btn btn-primary btn-block">Book</button>
+            <button type="reset" class="btn btn-ghost btn-block">Clear</button>
+          </div>
+        </form>
+
+        <!-- ✅ Added response message container -->
+        <div id="response" style="margin-top:12px;font-weight:bold;"></div>
+      </div>
+
+      <aside class="card contact-info-card">
+        <h3><i class="fas fa-info-circle"></i> Contact Info</h3>
+        <p><i class="fas fa-phone"></i> Phone / WhatsApp: +91 7524917394</p>
+        <p><i class="fas fa-money-bill-wave"></i> UPI: 7524917394@postbank</p>
+        <p><i class="fas fa-envelope"></i> Email: aryanmuradpur2008@gmail.com</p>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-top">
+      <img src="assests/alpha.jpg" alt="AlphaAryX Logo" class="footer-logo">
+      <p class="footer-about">
+        <strong>AlphaAryX</strong> — Your trusted digital partner for
+        <b>Graphics Design</b>, <b>Web Development</b>, <b>Education</b>, and <b>CSC Services.</b>
+      </p>
+    </div>
+
+    <div class="footer-main">
+      <div class="footer-links">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-contact">
+        <h3>Contact Info</h3>
+        <p>📞 +91 7524917394</p>
+        <p>💬 WhatsApp Available</p>
+        <p>💰 UPI: 7524917394@postbank</p>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
         </div>
-    </header>
+      </div>
+    </div>
 
-    <main class="container">
-        <h1>Book a Service</h1>
+    <div class="footer-bottom">
+      <p>© 2025 <strong>AlphaAryX</strong> • Built with 💙 by Aryan</p>
+    </div>
+  </footer>
 
-        <div class="contact-wrapper">
-            <div class="card contact-card">
-                <!-- FormSubmit form -->
-                <form action="https://formsubmit.co/aryanmuradpur2008@gmail.com" method="POST">
-                    <input type="hidden" name="_next" value="https://alphaaryx.vercel.app/thankyou.html">
+ <script>
+const scriptURL = "https://script.google.com/macros/s/AKfycbwEG8B-APb3UxC96jyIfU5SbXwHt6KE9a9h1AOsDwsQ9s7I4q9KdcgSIW2mzf1XYBby9w/exec";
+
+document.getElementById("serviceForm").addEventListener("submit", e => {
+  e.preventDefault();
+
+  const form = e.target;
+  const msg = document.getElementById("response");
+  msg.style.display = "block";
+  msg.innerText = "⏳ Sending...";
+
+  const formData = new FormData(form);
+
+  fetch(scriptURL, { method: "POST", body: formData })
+    .then(res => res.text())
+    .then(() => {
+      msg.innerText = "✅ Data sent successfully!";
+      form.reset();
+    })
+    .catch(err => {
+      msg.innerText = "❌ Error sending data!";
+      console.error("Error:", err);
+    });
+});
+if (data.email) {
+  MailApp.sendEmail({
+    to: data.email,
+    subject: "✅ AlphaAryX — Your Request Received",
+    htmlBody: `
+      <p>Hi <b>${data.name}</b>,</p>
+      <p>Thank you for contacting <b>AlphaAryX</b>. We have received your request for 
+      <b>${data.service}</b> and will get back to you soon.</p>
+      <p>Regards,<br><b>AlphaAryX Team</b></p>
+    `
+  });
+}
+
+</script>
 
 
-                    <!-- ✅ Added form ID -->
-                    <form id="serviceForm">
-                        <div class="form-group">
-                            <label for="fullname"><i class="fas fa-user"></i> Full name</label>
-                            <input id="fullname" name="Full Name" required placeholder="Your Name">
-                        </div>
 
-                        <div class="form-group">
-                            <label for="phone"><i class="fas fa-phone"></i> Phone / WhatsApp</label>
-                            <input id="phone" name="Phone" required placeholder="+91 7XXXXXXXXX">
-                        </div>
-
-                        <!-- ✅ Added Email Field -->
-                        <div class="form-group">
-                            <label for="email"><i class="fas fa-envelope"></i> Email</label>
-                            <input id="email" type="email" name="Email" required placeholder="your@email.com">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="serviceSelect"><i class="fas fa-clipboard-list"></i> Service</label>
-                            <select id="serviceSelect" name="Service" required>
-                                <option value="">-- Select a Service --</option>
-                                <option value="Poster Design">Poster Design</option>
-                                <option value="Logo">Logo</option>
-                                <option value="Exam Paper">Exam Paper</option>
-                                <option value="Typing">Typing</option>
-                                <option value="Website Development">Website Development</option>
-                                <option value="Form Online">Form Online</option>
-                                <option value="Other">Other</option>
-                            </select>
-                        </div>
-
-                        <div id="otherInput" class="form-group" style="display:none;">
-                            <label for="otherText"><i class="fas fa-pen"></i> Please specify:</label>
-                            <input type="text" id="otherText" name="Other Service" placeholder="Type here..." />
-                        </div>
-
-                        <div class="form-group">
-                            <label for="details"><i class="fas fa-comment-dots"></i> Details / Brief</label>
-                            <textarea id="details" name="Details" required
-                                placeholder="Describe your requirement"></textarea>
-                        </div>
-
-                        <div class="form-row">
-                            <button type="submit" class="btn btn-primary btn-block">Book</button>
-                            <button type="reset" class="btn btn-ghost btn-block">Clear</button>
-                        </div>
-                    </form>
-
-                    <div id="formMsg" class="muted" style="display:none;margin-top:12px"></div>
-            </div>
-
-            <aside class="card contact-info-card">
-                <h3><i class="fas fa-info-circle"></i> Contact Info</h3>
-                <p><i class="fas fa-phone"></i> Phone / WhatsApp: +91 7524917394</p>
-                <p><i class="fas fa-money-bill-wave"></i> UPI: 7524917394@postbank</p>
-                <p><i class="fas fa-envelope"></i> Email: aryanmuradpur2008@gmail.com</p>
-            </aside>
-        </div>
-    </main>
-
-    <footer class="footer">
-        <div class="footer-top">
-            <img src="assests/alpha.jpg" alt="AlphaAryX Logo" class="footer-logo">
-            <p class="footer-about">
-                <strong>AlphaAryX</strong> — Your trusted digital partner for
-                <b>Graphics Design</b>, <b>Web Development</b>, <b>Education</b>, and <b>CSC Services.</b>
-            </p>
-        </div>
-
-        <div class="footer-main">
-            <div class="footer-links">
-                <h3>Quick Links</h3>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="portfolio.html">Portfolio</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-contact">
-                <h3>Contact Info</h3>
-                <p>📞 +91 7524917394</p>
-                <p>💬 WhatsApp Available</p>
-                <p>💰 UPI: 7524917394@postbank</p>
-                <div class="social-icons">
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                </div>
-            </div>
-        </div>
-
-        <div class="footer-bottom">
-            <p>© 2025 <strong>AlphaAryX</strong> • Built with 💙 by Aryan</p>
-        </div>
-    </footer>
-
-    <!-- ✅ Working JS -->
-    <script>
-        const serviceSelect = document.getElementById('serviceSelect');
-        const otherInput = document.getElementById('otherInput');
-        const form = document.getElementById('serviceForm');
-
-        // Show/hide "Other" input
-        serviceSelect.addEventListener('change', () => {
-            otherInput.style.display = serviceSelect.value === 'Other' ? 'block' : 'none';
-        });
-
-        // Replace with your Apps Script web app URL
-        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzLaw2PffF1byNpL5-trjd2ESy-2_6b4Mv03GE9MGysc-z-_vymozqvJqbo6xoJnpzLGA/exec";
-
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault();
-
-            const payload = {
-                name: document.getElementById('fullname').value.trim(),
-                phone: document.getElementById('phone').value.trim(),
-                email: document.getElementById('email').value.trim(),
-                service: document.getElementById('serviceSelect').value,
-                other: document.getElementById('otherText').value.trim(),
-                details: document.getElementById('details').value.trim()
-            };
-
-            try {
-                const res = await fetch(SCRIPT_URL, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload)
-                });
-                const data = await res.json();
-                if (data.result === 'success') {
-                    alert('✅ Booking submitted! We will contact you soon.');
-                    form.reset();
-                    otherInput.style.display = 'none';
-                    // ✅ Redirect to thankyou page after success
-                    window.location.href = "thankyou.html";
-                } else {
-                    alert('⚠️ Error: ' + (data.message || 'Could not submit.'));
-                }
-            } catch (err) {
-                alert('❌ Network error: ' + err.message);
-            }
-        });
-    </script>
 </body>
-
 </html>
-
-  <script>
-    (function () {
-      emailjs.init("YOURv0cKW4tBmTPXbvdBl"); // Public Key from EmailJS
-    })();
-  </script>
