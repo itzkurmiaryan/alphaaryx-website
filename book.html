@@ -66,7 +66,7 @@
           </div>
 
           <div id="otherInput" class="form-group" style="display:none;">
-            <label for="otherText"><i class="fas fa-pen"></i> Please specify:</label>
+            <label for="otherText"><i class="fas fa-pen"></i> Other Service</label>
             <input type="text" id="otherText" name="other_service" placeholder="Type here..." />
           </div>
 
@@ -171,8 +171,20 @@ if (data.email) {
 }
 
 </script>
-
-
-
 </body>
 </html>
+
+
+<script>
+  const serviceSelect = document.getElementById("serviceSelect");
+  const otherInput = document.getElementById("otherInput");
+
+  serviceSelect.addEventListener("change", function() {
+    if (this.value === "Other") {
+      otherInput.style.display = "block";
+    } else {
+      otherInput.style.display = "none";
+      document.getElementById("otherText").value = "";
+    }
+  });
+</script>
