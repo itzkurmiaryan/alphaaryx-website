@@ -67,8 +67,15 @@
 
           <div id="otherInput" class="form-group" style="display:none;">
             <label for="otherText"><i class="fas fa-pen"></i> Other Service</label>
-            <input type="text" id="otherText" name="other_service" placeholder="Type here..." />
+            <input type="text" id="otherText" name="other_service" placeholder="Other Service" />
           </div>
+
+          <div id="typingUpload" class="form-group" style="display:none;">
+            <label for="typingFiles"><i class="fas fa-upload"></i> Upload Files</label>
+            <input type="file" id="typingFiles" name="typing_files" multiple accept=".jpg,.jpeg,.png,.pdf" />
+            <small>You can upload multiple images or PDF files.</small>
+          </div>
+
 
           <div class="form-group">
             <label for="details"><i class="fas fa-comment-dots"></i> Details / Brief</label>
@@ -121,8 +128,8 @@
         <p>💬 WhatsApp Available</p>
         <p>💰 UPI: 7524917394@postbank</p>
         <div class="social-icons">
-          <a href="#"><i class="fab fa-instagram"></i></a>
-          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="https://www.instagram.com/alphaaryx_/"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.facebook.com/share/17h2EH54uR/"><i class="fab fa-facebook"></i></a>
           <a href="#"><i class="fab fa-twitter"></i></a>
         </div>
       </div>
@@ -133,58 +140,70 @@
     </div>
   </footer>
 
- <script>
-const scriptURL = "https://script.google.com/macros/s/AKfycbwEG8B-APb3UxC96jyIfU5SbXwHt6KE9a9h1AOsDwsQ9s7I4q9KdcgSIW2mzf1XYBby9w/exec";
+  <script>
+    const scriptURL = "https://script.google.com/macros/s/AKfycbwEG8B-APb3UxC96jyIfU5SbXwHt6KE9a9h1AOsDwsQ9s7I4q9KdcgSIW2mzf1XYBby9w/exec";
 
-document.getElementById("serviceForm").addEventListener("submit", e => {
-  e.preventDefault();
+    document.getElementById("serviceForm").addEventListener("submit", e => {
+      e.preventDefault();
 
-  const form = e.target;
-  const msg = document.getElementById("response");
-  msg.style.display = "block";
-  msg.innerText = "⏳ Sending...";
+      const form = e.target;
+      const msg = document.getElementById("response");
+      msg.style.display = "block";
+      msg.innerText = "⏳ Sending...";
 
-  const formData = new FormData(form);
+      const formData = new FormData(form);
 
-  fetch(scriptURL, { method: "POST", body: formData })
-    .then(res => res.text())
-    .then(() => {
-      msg.innerText = "✅ Data sent successfully!";
-      form.reset();
-    })
-    .catch(err => {
-      msg.innerText = "❌ Error sending data!";
-      console.error("Error:", err);
+      fetch(scriptURL, { method: "POST", body: formData })
+        .then(res => res.text())
+        .then(() => {
+          msg.innerText = "✅ Data sent successfully!";
+          form.reset();
+        })
+        .catch(err => {
+          msg.innerText = "❌ Error sending data!";
+          console.error("Error:", err);
+        });
     });
-});
-if (data.email) {
-  MailApp.sendEmail({
-    to: data.email,
-    subject: "✅ AlphaAryX — Your Request Received",
-    htmlBody: `
+    if (data.email) {
+      MailApp.sendEmail({
+        to: data.email,
+        subject: "✅ AlphaAryX — Your Request Received",
+        htmlBody: `
       <p>Hi <b>${data.name}</b>,</p>
       <p>Thank you for contacting <b>AlphaAryX</b>. We have received your request for 
       <b>${data.service}</b> and will get back to you soon.</p>
       <p>Regards,<br><b>AlphaAryX Team</b></p>
     `
-  });
-}
+      });
+    }
 
-</script>
+  </script>
 </body>
+
 </html>
 
 
 <script>
-  const serviceSelect = document.getElementById("serviceSelect");
+    const serviceSelect = document.getElementById("serviceSelect");
   const otherInput = document.getElementById("otherInput");
+  const typingUpload = document.getElementById("typingUpload");
 
-  serviceSelect.addEventListener("change", function() {
+  serviceSelect.addEventListener("change", function () {
+    // Show "Other" service input
     if (this.value === "Other") {
       otherInput.style.display = "block";
     } else {
       otherInput.style.display = "none";
       document.getElementById("otherText").value = "";
     }
+
+    // Show "Typing" upload box
+    if (this.value === "Typing") {
+      typingUpload.style.display = "block";
+    } else {
+      typingUpload.style.display = "none";
+      document.getElementById("typingFiles").value = "";
+    }
   });
 </script>
+

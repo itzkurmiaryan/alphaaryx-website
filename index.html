@@ -7,6 +7,13 @@
   <title>AlphaAryX — Design • Education • CSC Services</title>
   <meta name="description" content="AlphaAryX — Graphics Designing, Education Support, and CSC Online Services">
   <link rel="stylesheet" href="css/styles.css">
+  <!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/11.0.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/11.0.0/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/11.0.0/firebase-storage.js"></script>
+<script src="https://www.gstatic.com/firebasejs/11.0.0/firebase-auth.js"></script>
+<script src="app.js"></script>
+
 
 </head>
 
@@ -36,7 +43,8 @@
     <section class="hero">
       <div class="hero-content">
         <h1>Your All-in-One Digital Partner</h1>
-        <p class="lead">Design • Website Development • Education • CSC Works — Posters, Logos, Paper Typing, Certificates & more. Fast,
+        <p class="lead">Design • Website Development • Education • CSC Works — Posters, Logos, Paper Typing,
+          Certificates & more. Fast,
           affordable, local.</p>
         <div class="hero-actions">
           <a href="services.html" class="btn btn-primary">Explore Services</a>
@@ -91,12 +99,35 @@
     <section class="portfolio-preview">
       <h2>Recent Work</h2>
       <div class="grid">
-        <a class="card" href="portfolio.html#poster">Poster — School Event</a>
-        <a class="card" href="portfolio.html#logo">Logo — Local Shop</a>
-        <a class="card" href="portfolio.html#paper">Exam Paper — Class 10</a>
+        <a class="card" href="portfolio.html">Poster — School Event</a>
+        <a class="card" href="portfolio.html">Logo — Local Shop</a>
+        <a class="card" href="portfolio.html">Exam Paper — Class 10</a>
       </div>
     </section>
   </main>
+
+  <section class="Review-preview">
+    <h2>Leave a Review</h2>
+  </section>
+  <form id="reviewForm">
+    <input type="text" id="reviewName" placeholder="Your Name" required><br>
+    <select id="reviewRating" required>
+      <option value="">Rating</option>
+      <option value="5">⭐⭐⭐⭐⭐</option>
+      <option value="4">⭐⭐⭐⭐</option>
+      <option value="3">⭐⭐⭐</option>
+      <option value="2">⭐⭐</option>
+      <option value="1">⭐</option>
+    </select><br>
+    <textarea id="reviewMessage" placeholder="Write your feedback..." required></textarea><br>
+    <button type="submit">Submit Review</button>
+  </form>
+
+
+  <div id="reviewList"></div>
+  <div class="pagination" id="pagination"></div>
+
+  <br><br>
 
   <footer class="footer">
     <div class="footer-top">
@@ -127,8 +158,8 @@
         <p>💬 WhatsApp Available</p>
         <p>💰 UPI: 7524917394@postbank</p>
         <div class="social-icons">
-          <a href="#"><i class="fab fa-instagram"></i></a>
-          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="https://www.instagram.com/alphaaryx_/"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.facebook.com/share/17h2EH54uR/"><i class="fab fa-facebook"></i></a>
           <a href="#"><i class="fab fa-twitter"></i></a>
         </div>
       </div>
@@ -145,3 +176,139 @@
 </body>
 
 </html>
+<script>
+  const scriptURL = "https://script.google.com/macros/s/AKfycbyma_7BGD3VC-bjZqkExt7c915wGQN-UbfMg4zcOyLMEsz_vQg-whgl4xg4_7L1IKbmiQ/exec";
+
+  let allReviews = [];
+  let currentPage = 1;
+  const reviewsPerPage = 3;
+
+  document.getElementById("reviewForm").addEventListener("submit", async e => {
+    e.preventDefault();
+
+    const data = {
+      name: document.getElementById("reviewName").value,
+      rating: document.getElementById("reviewRating").value,
+      message: document.getElementById("reviewMessage").value
+    };
+
+    await fetch(scriptURL, {
+      method: "POST",
+      body: JSON.stringify(data)
+    });
+
+    alert("Review submitted successfully!");
+    document.getElementById("reviewForm").reset();
+    loadReviews();
+  });
+
+  async function loadReviews() {
+    const res = await fetch(scriptURL);
+    const reviews = await res.json();
+    allReviews = reviews.reverse(); // latest first
+    renderReviews();
+  }
+
+  function renderReviews() {
+    const list = document.getElementById("reviewList");
+    const pagination = document.getElementById("pagination");
+    list.innerHTML = "";
+    pagination.innerHTML = "";
+
+    const start = (currentPage - 1) * reviewsPerPage;
+    const end = start + reviewsPerPage;
+    const currentReviews = allReviews.slice(start, end);
+
+    currentReviews.forEach(r => {
+      const card = document.createElement("div");
+      card.classList.add("review-card");
+      card.innerHTML = `
+      <h3>${r.name}</h3>
+      <div class="stars">${"⭐".repeat(r.rating)}</div>
+      <p>${r.message}</p>
+      <small>${new Date(r.date).toLocaleDateString()}</small>
+    `;
+      list.appendChild(card);
+    });
+
+    const totalPages = Math.ceil(allReviews.length / reviewsPerPage);
+    if (totalPages <= 1) return;
+
+    const prev = document.createElement("button");
+    prev.innerHTML = "&lt;";
+    prev.disabled = currentPage === 1;
+    prev.onclick = () => {
+      if (currentPage > 1) {
+        currentPage--;
+        renderReviews();
+      }
+    };
+    pagination.appendChild(prev);
+
+    const visiblePages = 5; // how many to show in middle
+    let startPage = Math.max(1, currentPage - Math.floor(visiblePages / 2));
+    let endPage = Math.min(totalPages, startPage + visiblePages - 1);
+
+    // Adjust if near the end
+    if (endPage - startPage + 1 < visiblePages) {
+      startPage = Math.max(1, endPage - visiblePages + 1);
+    }
+
+    // Add "1 ..." if needed
+    if (startPage > 1) {
+      const first = document.createElement("button");
+      first.textContent = "1";
+      first.onclick = () => {
+        currentPage = 1;
+        renderReviews();
+      };
+      pagination.appendChild(first);
+      if (startPage > 2) {
+        const dots = document.createElement("span");
+        dots.textContent = "...";
+        pagination.appendChild(dots);
+      }
+    }
+
+    // Main page buttons
+    for (let i = startPage; i <= endPage; i++) {
+      const btn = document.createElement("button");
+      btn.textContent = i;
+      if (i === currentPage) btn.classList.add("active");
+      btn.onclick = () => {
+        currentPage = i;
+        renderReviews();
+      };
+      pagination.appendChild(btn);
+    }
+
+    // Add "... last" if needed
+    if (endPage < totalPages) {
+      if (endPage < totalPages - 1) {
+        const dots = document.createElement("span");
+        dots.textContent = "...";
+        pagination.appendChild(dots);
+      }
+      const last = document.createElement("button");
+      last.textContent = totalPages;
+      last.onclick = () => {
+        currentPage = totalPages;
+        renderReviews();
+      };
+      pagination.appendChild(last);
+    }
+
+    const next = document.createElement("button");
+    next.innerHTML = "&gt;";
+    next.disabled = currentPage === totalPages;
+    next.onclick = () => {
+      if (currentPage < totalPages) {
+        currentPage++;
+        renderReviews();
+      }
+    };
+    pagination.appendChild(next);
+  }
+
+  loadReviews();
+</script>
